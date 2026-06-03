@@ -7,9 +7,6 @@ import { JsonLdScript } from "@/lib/json-ld"
 import { cn } from "@/lib/utils"
 import { About } from "@/features/portfolio/components/about"
 import { Awards } from "@/features/portfolio/components/awards"
-import { Blog } from "@/features/portfolio/components/blog"
-import { Bookmarks } from "@/features/portfolio/components/bookmarks"
-import { Certifications } from "@/features/portfolio/components/certifications"
 import { Experiences } from "@/features/portfolio/components/experiences"
 import {
   Insights,
@@ -20,12 +17,7 @@ import { ProfileActivityMosaicCover } from "@/features/portfolio/components/prof
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links-v2"
-import { Sponsors } from "@/features/portfolio/components/sponsors"
 import { USER } from "@/features/portfolio/data/user"
-
-const ComponentsShowcase = dynamic(
-  () => import("@/features/portfolio/components/components-showcase")
-)
 
 const TOC = dynamic(() => import("@/features/portfolio/components/toc"))
 
@@ -55,16 +47,9 @@ export default function HomePage() {
 
         <div className="mx-auto xl:container">
           <Separator />
-          <ComponentsShowcase />
         </div>
 
         <div className="mx-auto md:max-w-3xl">
-          <Separator />
-
-          <Blog />
-          <Separator />
-
-          <Sponsors />
           <Separator />
 
           <Experiences />
@@ -74,12 +59,6 @@ export default function HomePage() {
           <Separator />
 
           <Awards />
-          <Separator />
-
-          <Certifications />
-          <Separator />
-
-          <Bookmarks />
           <Separator />
 
           <Suspense fallback={<InsightsSkeleton />}>

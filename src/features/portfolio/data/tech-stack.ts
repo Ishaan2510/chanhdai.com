@@ -1,18 +1,7 @@
 import type { TechStack } from "../types/tech-stack"
 
 export const TECH_STACK: TechStack[] = [
-  {
-    key: "typescript",
-    title: "TypeScript",
-    href: "https://www.typescriptlang.org/",
-    categories: ["Languages"],
-  },
-  {
-    key: "js",
-    title: "JavaScript",
-    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    categories: ["Languages"],
-  },
+  // Languages
   {
     key: "python",
     title: "Python",
@@ -20,17 +9,57 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Languages"],
   },
   {
-    key: "php",
-    title: "PHP",
-    href: "https://www.php.net/",
+    key: "javascript",
+    title: "JavaScript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     categories: ["Languages"],
   },
   {
-    key: "java",
-    title: "Java",
-    href: "https://www.java.com/",
+    key: "typescript",
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org/",
     categories: ["Languages"],
   },
+  {
+    key: "sql",
+    title: "SQL",
+    href: "https://en.wikipedia.org/wiki/SQL",
+    categories: ["Languages"],
+  },
+  {
+    key: "cpp",
+    title: "C++",
+    href: "https://isocpp.org/",
+    categories: ["Languages"],
+  },
+
+  // Backend
+  {
+    key: "nodejs",
+    title: "Node.js",
+    href: "https://nodejs.org/",
+    categories: ["Backend"],
+  },
+  {
+    key: "express",
+    title: "Express",
+    href: "https://expressjs.com/",
+    categories: ["Backend"],
+  },
+  {
+    key: "flask",
+    title: "Flask",
+    href: "https://flask.palletsprojects.com/",
+    categories: ["Backend"],
+  },
+  {
+    key: "fastapi",
+    title: "FastAPI",
+    href: "https://fastapi.tiangolo.com/",
+    categories: ["Backend"],
+  },
+
+  // Frontend
   {
     key: "react",
     title: "React",
@@ -38,11 +67,16 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Frontend"],
   },
   {
-    key: "nextjs2",
+    key: "nextjs",
     title: "Next.js",
     href: "https://nextjs.org/",
     categories: ["Frontend"],
-    theme: true,
+  },
+  {
+    key: "vue",
+    title: "Vue.js",
+    href: "https://vuejs.org/",
+    categories: ["Frontend"],
   },
   {
     key: "tailwindcss",
@@ -50,142 +84,82 @@ export const TECH_STACK: TechStack[] = [
     href: "https://tailwindcss.com/",
     categories: ["Frontend"],
   },
-  {
-    key: "shadcn-ui",
-    title: "shadcn/ui",
-    href: "https://ui.shadcn.com/",
-    categories: ["Frontend"],
-    theme: true,
-  },
-  {
-    key: "radixui",
-    title: "Radix UI",
-    href: "https://www.radix-ui.com/",
-    categories: ["Frontend"],
-    theme: true,
-  },
-  {
-    key: "base-ui",
-    title: "Base UI",
-    href: "https://base-ui.com/",
-    categories: ["Frontend"],
-    theme: true,
-  },
-  {
-    key: "motion",
-    title: "Motion",
-    href: "https://motion.dev/",
-    categories: ["Frontend"],
-  },
-  {
-    key: "tanstack",
-    title: "TanStack",
-    href: "https://tanstack.com/",
-    categories: ["Frontend"],
-    theme: true,
-  },
-  {
-    key: "mobx-state-tree",
-    title: "MobX-State-Tree",
-    href: "https://mobx-state-tree.js.org/",
-    categories: ["Frontend"],
-  },
-  {
-    key: "redux",
-    title: "Redux",
-    href: "https://redux.js.org/",
-    categories: ["Frontend"],
-  },
-  {
-    key: "react-navigation",
-    title: "React Navigation",
-    href: "https://reactnavigation.org/",
-    categories: ["Frontend"],
-  },
-  {
-    key: "nodejs",
-    title: "Node.js",
-    href: "https://nodejs.org/",
-    categories: ["Backend & Database"],
-  },
-  {
-    key: "bun",
-    title: "Bun",
-    href: "https://bun.sh/",
-    categories: ["Backend & Database"],
-  },
-  {
-    key: "laravel",
-    title: "Laravel",
-    href: "https://laravel.com/",
-    categories: ["Backend & Database"],
-  },
+
+  // Databases
   {
     key: "postgresql",
     title: "PostgreSQL",
-    href: "https://www.postgresql.org",
-    categories: ["Backend & Database"],
-  },
-  {
-    key: "mysql",
-    title: "MySQL",
-    href: "https://www.mysql.com/",
-    categories: ["Backend & Database"],
+    href: "https://www.postgresql.org/",
+    categories: ["Databases"],
   },
   {
     key: "mongodb",
     title: "MongoDB",
     href: "https://www.mongodb.com/",
-    categories: ["Backend & Database"],
+    categories: ["Databases"],
+  },
+  {
+    key: "mysql",
+    title: "MySQL",
+    href: "https://www.mysql.com/",
+    categories: ["Databases"],
   },
   {
     key: "redis",
     title: "Redis",
     href: "https://redis.io/",
-    categories: ["Backend & Database"],
+    categories: ["Databases"],
   },
-  {
-    key: "git",
-    title: "Git",
-    href: "https://git-scm.com/",
-    categories: ["Dev Tools"],
-  },
+
+  // DevOps
   {
     key: "docker",
     title: "Docker",
     href: "https://www.docker.com/",
-    categories: ["Dev Tools"],
+    categories: ["DevOps"],
   },
   {
-    key: "claude",
-    title: "Claude",
-    href: "https://claude.ai/",
-    categories: ["Dev Tools"],
+    key: "kubernetes",
+    title: "Kubernetes",
+    href: "https://kubernetes.io/",
+    categories: ["DevOps"],
   },
   {
-    key: "cursor",
-    title: "Cursor",
-    href: "https://cursor.com/",
-    categories: ["Dev Tools"],
-    theme: true,
+    key: "githubactions",
+    title: "GitHub Actions",
+    href: "https://github.com/features/actions",
+    categories: ["DevOps"],
   },
   {
-    key: "chatgpt",
-    title: "ChatGPT",
-    href: "https://chatgpt.com/",
-    categories: ["Dev Tools"],
-    theme: true,
+    key: "azure",
+    title: "Azure",
+    href: "https://azure.microsoft.com/",
+    categories: ["DevOps"],
   },
   {
-    key: "figma",
-    title: "Figma",
-    href: "https://www.figma.com/",
-    categories: ["Design"],
+    key: "nginx",
+    title: "Nginx",
+    href: "https://nginx.org/",
+    categories: ["DevOps"],
+  },
+
+  // Machine Learning
+  {
+    key: "langchain",
+    title: "LangChain",
+    href: "https://www.langchain.com/",
+    categories: ["ML"],
   },
   {
-    key: "ps",
-    title: "Photoshop",
-    href: "https://www.adobe.com/vn_en/products/photoshop.html",
-    categories: ["Design"],
+    key: "faiss",
+    title: "FAISS",
+    href: "https://faiss.ai/",
+    categories: ["ML"],
+  },
+  {
+    key: "scikitlearn",
+    title: "scikit-learn",
+    href: "https://scikit-learn.org/",
+    categories: ["ML"],
   },
 ]

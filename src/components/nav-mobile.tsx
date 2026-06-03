@@ -12,7 +12,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { haptic } from "@/registry/lib/haptic"
+
+// DELETE:
 
 export function NavMobile({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false)
@@ -22,7 +23,6 @@ export function NavMobile({ items }: { items: NavItem[] }) {
   const pathname = usePathname()
 
   const handleOpenChange = useCallback((open: boolean) => {
-    haptic()
     setOpen(open)
   }, [])
 

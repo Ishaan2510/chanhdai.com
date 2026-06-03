@@ -1,21 +1,19 @@
 "use client"
 
-import Link from "next/link"
 import { copyText } from "@/utils/copy"
 import { useTiks } from "@rexa-developer/tiks/react"
-import { Download, SquareDashed, Type } from "lucide-react"
+import { Type } from "lucide-react"
 import { toast } from "sonner"
 
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuSeparator,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 
-import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark"
-import { getWordmarkSVG } from "./chanhdai-wordmark"
+import { BrandMark, getMarkSVG } from "./brand-mark"
+import { getWordmarkSVG } from "./brand-wordmark"
 
 export function BrandContextMenu({ children }: { children: React.ReactNode }) {
   const { success } = useTiks()
@@ -32,7 +30,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
             success()
           }}
         >
-          <ChanhDaiMark />
+          <BrandMark />
           Copy Mark as SVG
         </ContextMenuItem>
 
@@ -45,22 +43,6 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
         >
           <Type />
           Copy Logotype as SVG
-        </ContextMenuItem>
-
-        <ContextMenuSeparator />
-
-        <ContextMenuItem asChild>
-          <Link href="/blog/chanhdai-brand">
-            <SquareDashed />
-            Brand Guidelines
-          </Link>
-        </ContextMenuItem>
-
-        <ContextMenuItem asChild>
-          <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-            <Download />
-            Download Brand Assets
-          </a>
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

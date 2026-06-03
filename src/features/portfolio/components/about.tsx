@@ -9,7 +9,6 @@ import {
 } from "@/features/portfolio/components/panel"
 import { PanelTitleCopy } from "@/features/portfolio/components/panel-title-copy"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
-import { Testimonials } from "@/features/portfolio/components/testimonials"
 import { USER } from "@/features/portfolio/data/user"
 
 const ID = "hello"
@@ -30,7 +29,6 @@ export function About() {
         </Prose>
       </PanelContent>
 
-      <Testimonials />
       <GitHubContributions />
       <TechStack />
     </Panel>

@@ -7,12 +7,12 @@ import type {
   ChevronDownIconProps,
 } from "@/components/animated-icons/chevron-down-icon"
 import { ChevronDownIcon } from "@/components/animated-icons/chevron-down-icon"
-import { Collapsible as CollapsibleRoot } from "@/components/base/ui/collapsible"
 import type {
   ChevronsUpDownIconHandle,
   ChevronsUpDownIconProps,
-} from "@/registry/components/chevrons-up-down-icon"
-import { ChevronsUpDownIcon } from "@/registry/components/chevrons-up-down-icon"
+} from "@/components/animated-icons/chevrons-up-down-icon"
+import { ChevronsUpDownIcon } from "@/components/animated-icons/chevrons-up-down-icon"
+import { Collapsible as CollapsibleRoot } from "@/components/base/ui/collapsible"
 
 type CollapsibleContextType = {
   open: boolean

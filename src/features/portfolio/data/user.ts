@@ -1,64 +1,59 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Ishaan",
+  lastName: "Goswami",
+  displayName: "Ishaan Goswami",
+  username: "ishaan2510",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Backend & systems engineer. Building distributed systems with care, precision, and a stubborn dislike of 3am pages.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer",
-    "Open Source Contributor",
+    "Backend & systems engineer.",
+    "Distributed systems builder.",
+    "Container-native deployments.",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Ahmedabad, India",
+  email: "aXNoYWFuZ29zd2FtaTczNUBnbWFpbC5jb20=", // base64 encoded
+  website: "https://github.com/Ishaan2510",
+  jobTitle: "Computer Science Undergraduate",
   jobs: [
     {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com?atp=ncdai",
-      experienceId: "shadcncraft",
+      title: "B.Tech CSE",
+      company: "PDEU",
+      website: "https://www.pdpu.ac.in/",
+      experienceId: "pdeu",
     },
     {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
+      title: "B.S. Data Science",
+      company: "IIT Madras",
+      website: "https://study.iitm.ac.in/",
+      experienceId: "iitm",
     },
   ],
   about: `
-- I’m Chánh Đại (call me Dai) — a Design Engineer with 5+ years of experience, known for pixel-perfect execution and an obsessive attention to detail.
-- Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects.
-- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (1.9k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (24k+ weekly downloads, ▲Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
+- I'm Ishaan, a third-year CS undergrad at PDEU Ahmedabad, concurrently pursuing a B.S. in Data Science from IIT Madras.
+- My focus is on the parts of software that decide whether a system stays up under real load. Distributed systems, LLM orchestration, container-native deployments, GitOps pipelines.
+- Shipped three real projects end to end: [Cortex](https://cortex-ai-task-platform.vercel.app/) (multi-provider LLM orchestration on Kubernetes), [Pitlane Live](https://pitlane-live-three.vercel.app/) (F1 race analytics with telemetry pipeline), and [TechReg Analyst](https://github.com/Ishaan2510/f1-regulations-rag-system) (retrieval-augmented analyst over the FIA F1 Technical Regulations).
+- Open to opportunities. If you think I can help, feel free to reach out by email.
 `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar: "/ishaan.jpeg",
   avatarVariants: {
-    lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
-    lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",
-    darkOff: "https://assets.chanhdai.com/images/avatar-dark-off.webp",
-    darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
+    lightOff: "/ishaan.jpeg",
+    lightOn: "/ishaan.jpeg",
+    darkOff: "/ishaan.jpeg",
+    darkOn: "/ishaan.jpeg",
   },
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+  ogImage: "/og-image.png",
+  namePronunciationUrl: "",
+  timeZone: "Asia/Kolkata",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "Ishaan Goswami",
+    "backend engineer",
+    "distributed systems",
+    "Kubernetes",
+    "Next.js",
+    "portfolio",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2026-06-01", // YYYY-MM-DD
 }

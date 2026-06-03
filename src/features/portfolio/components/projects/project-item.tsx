@@ -115,6 +115,17 @@ export function ProjectItem({
             </Prose>
           )}
 
+          <p className="text-sm text-muted-foreground">
+            <a
+              className="link-underline"
+              href={addQueryParams(project.link, UTM_PARAMS)}
+              target="_blank"
+              rel="noopener"
+            >
+              Live
+            </a>
+          </p>
+
           {project.skills.length > 0 && (
             <ul className="flex flex-wrap gap-1.5">
               {project.skills.map((skill, index) => (

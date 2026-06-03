@@ -1,101 +1,74 @@
 "use client"
 
-import { use } from "react"
-import { addQueryParams } from "@/utils/url"
-import { format } from "date-fns"
-import { LoaderIcon } from "lucide-react"
-
-import { GITHUB_USERNAME, UTM_PARAMS } from "@/config/site"
+import type { Activity } from "../profile-activity-mosaic-cover/activity-mosaic"
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/base/ui/tooltip"
-import type { Activity } from "@/registry/components/contribution-graph"
-import {
-  ContributionGraph,
-  ContributionGraphBlock,
-  ContributionGraphCalendar,
-  ContributionGraphFooter,
-  ContributionGraphLegend,
-  ContributionGraphTotalCount,
-} from "@/registry/components/contribution-graph"
+  ActivityMosaic,
+  ActivityMosaicCell,
+  ActivityMosaicGrid,
+} from "../profile-activity-mosaic-cover/activity-mosaic"
 
-export function GitHubContributionGraph({
-  contributions,
-}: {
-  contributions: Promise<Activity[]>
-}) {
-  const data = use(contributions)
-
-  return (
-    <ContributionGraph
-      className="mx-auto gap-4 py-4"
-      data={data}
-      blockSize={11}
-      blockMargin={3}
-      blockRadius={0}
-      aria-label="GitHub Contributions Graph"
-    >
-      <ContributionGraphCalendar
-        className="no-scrollbar px-2"
-        title="GitHub Contributions"
-        aria-hidden
-      >
-        {({ activity, dayIndex, weekIndex }) => (
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <g>
-                  <ContributionGraphBlock
-                    activity={activity}
-                    dayIndex={dayIndex}
-                    weekIndex={weekIndex}
-                  />
-                </g>
-              }
-            />
-            <TooltipContent className="font-sans">
-              <p>
-                {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
-                on {format(new Date(activity.date), "dd.MM.yyyy")}
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        )}
-      </ContributionGraphCalendar>
-
-      <ContributionGraphFooter className="px-2">
-        <ContributionGraphTotalCount>
-          {({ totalCount, year }) => (
-            <div className="text-muted-foreground">
-              {totalCount.toLocaleString("en")} contributions in {year} on{" "}
-              <a
-                className="text-foreground link-underline"
-                href={addQueryParams(
-                  `https://github.com/${GITHUB_USERNAME}`,
-                  UTM_PARAMS
-                )}
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub
-              </a>
-              .
-            </div>
-          )}
-        </ContributionGraphTotalCount>
-
-        <ContributionGraphLegend aria-hidden />
-      </ContributionGraphFooter>
-    </ContributionGraph>
-  )
+export type MonthLabel = {
+  columnIndex: number
+  label: string
 }
 
-export function GitHubContributionFallback() {
+export function GitHubContributionsGraph({
+  activities,
+  rowCount,
+  columnCount,
+  cellSize,
+  cellMargin,
+  cellRadius,
+  monthLabels,
+}: {
+  activities: Activity[]
+  rowCount: number
+  columnCount: number
+  cellSize: number
+  cellMargin: number
+  cellRadius: number
+  monthLabels: MonthLabel[]
+}) {
+  const columnWidth = cellSize + cellMargin
+
   return (
-    <div className="flex h-46.5 w-full items-center justify-center">
-      <LoaderIcon className="animate-spin text-muted-foreground" />
+    <div className="mx-auto w-fit max-w-full overflow-x-auto">
+      {/* Month labels */}
+      <div
+        className="relative mb-1 h-4 text-xs text-muted-foreground"
+        style={{ width: columnCount * columnWidth - cellMargin }}
+        aria-hidden
+      >
+        {monthLabels.map(({ columnIndex, label }) => (
+          <span
+            key={`${columnIndex}-${label}`}
+            className="absolute top-0 tabular-nums"
+            style={{ left: columnIndex * columnWidth }}
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+
+      <ActivityMosaic
+        className="justify-start"
+        activities={activities}
+        rowCount={rowCount}
+        columnCount={columnCount}
+        cellSize={cellSize}
+        cellMargin={cellMargin}
+        cellRadius={cellRadius}
+      >
+        <ActivityMosaicGrid>
+          {({ activity, rowIndex, columnIndex }) => (
+            <ActivityMosaicCell
+              activity={activity}
+              rowIndex={rowIndex}
+              columnIndex={columnIndex}
+            />
+          )}
+        </ActivityMosaicGrid>
+      </ActivityMosaic>
     </div>
   )
 }
