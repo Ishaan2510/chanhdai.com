@@ -1,49 +1,84 @@
 "use client"
 
-import { useState } from "react"
-import { Check, Copy } from "lucide-react"
+import type { ComponentProps } from "react"
+import { Check, Copy, X } from "lucide-react"
 
-import { trackEvent } from "@/lib/events"
+import type { CopyState } from "@/hooks/use-copy-to-clipboard"
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { Button } from "@/components/base/ui/button"
 
-export interface CopyButtonProps {
-  value: string
-  size?: "icon-sm" | "icon" | "icon-lg"
-  className?: string
+export type CopyButtonProps = ComponentProps<typeof Button> & {
+  /** The text to copy, or a function that returns the text. */
+  text: string | (() => string)
+  /** Called with the copied text on successful copy. */
+  onCopySuccess?: (text: string) => void
+  /** Called with the error if the copy operation fails. */
+  onCopyError?: (error: Error) => void
+  /** Custom icon for idle state. */
+  idleIcon?: React.ReactNode
+  /** Custom icon for done state. */
+  doneIcon?: React.ReactNode
+  /** Custom icon for error state. */
+  errorIcon?: React.ReactNode
+}
+
+function CopyStateIcon({
+  state,
+  idleIcon,
+  doneIcon,
+  errorIcon,
+}: {
+  state: CopyState
+  idleIcon?: React.ReactNode
+  doneIcon?: React.ReactNode
+  errorIcon?: React.ReactNode
+}) {
+  if (state === "done") {
+    return doneIcon ?? <Check />
+  }
+
+  if (state === "error") {
+    return errorIcon ?? <X />
+  }
+
+  return idleIcon ?? <Copy />
 }
 
 export function CopyButton({
-  value,
   size = "icon-sm",
-  className,
+  children,
+  text,
+  idleIcon,
+  doneIcon,
+  errorIcon,
+  onClick,
+  onCopySuccess,
+  onCopyError,
+  ...props
 }: CopyButtonProps) {
-  const [copied, setCopied] = useState(false)
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(value)
-      setCopied(true)
-      trackEvent?.("copy", { value })
-      setTimeout(() => setCopied(false), 1500)
-    } catch (err) {
-      console.error("Failed to copy:", err)
-    }
-  }
+  const { state, copy } = useCopyToClipboard({
+    onCopySuccess,
+    onCopyError,
+  })
 
   return (
     <Button
       type="button"
-      variant="ghost"
       size={size}
-      onClick={handleCopy}
-      className={className}
-      aria-label={copied ? "Copied" : "Copy"}
+      onClick={(e) => {
+        copy(text)
+        onClick?.(e)
+      }}
+      aria-label="Copy"
+      {...props}
     >
-      {copied ? (
-        <Check className="h-3.5 w-3.5" />
-      ) : (
-        <Copy className="h-3.5 w-3.5" />
-      )}
+      <CopyStateIcon
+        state={state}
+        idleIcon={idleIcon}
+        doneIcon={doneIcon}
+        errorIcon={errorIcon}
+      />
+      {children}
     </Button>
   )
 }
