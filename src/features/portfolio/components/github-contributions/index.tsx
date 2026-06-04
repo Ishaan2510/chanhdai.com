@@ -29,7 +29,7 @@ const getGitHubContributions = unstable_cache(
   async (username: string): Promise<GitHubContributionsResponse | null> => {
     try {
       const res = await fetch(
-        `${process.env.GITHUB_CONTRIBUTIONS_API_URL}/v4/${username}?y=last`
+        `${process.env.GITHUB_CONTRIBUTIONS_API_URL ?? "https://github-contributions-api.jogruber.de"}/v4/${username}?y=last`
       )
 
       if (!res.ok) {
