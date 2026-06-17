@@ -29,6 +29,29 @@ export const PROJECTS: Project[] = [
     isExpanded: true,
   },
   {
+    id: "dentalbooks",
+    title: "DentalBooks",
+    period: {
+      start: "2026",
+    },
+    link: "https://dental-books.vercel.app/",
+    skills: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Lucide React",
+      "localStorage",
+      "Service Worker",
+      "PWA",
+    ],
+    description: `Free offline dental clinic invoice & prescription manager built for a real practice. / [Live](https://dental-books.vercel.app/) · [Source](https://github.com/Ishaan2510/dental-books)
+- Invoice generation with 23 pre-loaded dental procedures, itemized totals, and print-optimized A4 templates
+- Prescription writing over a 15-medicine database with dosage, frequency, and duration; patient directory with search and repeat-visit auto-suggest
+- Income dashboard tracking daily, monthly, and lifetime earnings
+- Fully offline via localStorage with JSON backup/restore; installable PWA with service worker and mobile-first bottom-tab navigation
+`,
+  },
+  {
     id: "pitlane",
     title: "Pitlane Live",
     period: {
